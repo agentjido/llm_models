@@ -1,0 +1,54 @@
+defmodule LlmModels.Packaged do
+  @moduledoc """
+  Reads packaged snapshot from priv directory at compile-time or runtime.
+
+  Behavior controlled by `:compile_embed` configuration option.
+  """
+
+  @snapshot_filename "priv/llm_models/snapshot.json"
+
+  @doc """
+  Returns the absolute path to the packaged snapshot file.
+
+  ## Returns
+
+  String path to `priv/llm_models/snapshot.json` within the application directory.
+  """
+  @spec path() :: String.t()
+  def path do
+    Application.app_dir(:llm_models, @snapshot_filename)
+  end
+
+  if Application.compile_env(:llm_models, :compile_embed, false) do
+    @compile_path Path.join([Application.app_dir(:llm_models), @snapshot_filename])
+    @external_resource @compile_path
+
+    snapshot_content = File.read!(@compile_path)
+    @snapshot Jason.decode!(snapshot_content, keys: :atoms)
+
+    @doc """
+    Returns the packaged snapshot (compile-time embedded).
+
+    ## Returns
+
+    Map with `:providers` and `:models` keys, or `nil` if file doesn't exist.
+    """
+    @spec snapshot() :: map() | nil
+    def snapshot, do: @snapshot
+  else
+    @doc """
+    Returns the packaged snapshot (runtime loaded).
+
+    ## Returns
+
+    Map with `:providers` and `:models` keys, or `nil` if file doesn't exist.
+    """
+    @spec snapshot() :: map() | nil
+    def snapshot do
+      case File.read(path()) do
+        {:ok, content} -> Jason.decode!(content, keys: :atoms)
+        {:error, _} -> nil
+      end
+    end
+  end
+end

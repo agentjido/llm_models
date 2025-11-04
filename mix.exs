@@ -22,7 +22,8 @@ defmodule LlmModels.MixProject do
   defp deps do
     [
       {:zoi, "~> 0.8"},
-      {:jason, "~> 1.4"}
+      {:jason, "~> 1.4"},
+      {:meck, "~> 0.9", only: :test}
     ]
   end
 
