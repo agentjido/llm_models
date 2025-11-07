@@ -1,4 +1,4 @@
-# LLM Models
+# LLM DB - A LLM Model Metadata Database
 
 [![Hex.pm](https://img.shields.io/hexpm/v/llm_db.svg)](https://hex.pm/packages/llm_db)
 [![License](https://img.shields.io/hexpm/l/llm_db.svg)](https://github.com/agentjido/llm_db/blob/main/LICENSE)
