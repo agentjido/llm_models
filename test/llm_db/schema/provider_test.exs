@@ -1,7 +1,7 @@
 defmodule LLMDb.Schema.ProviderTest do
   use ExUnit.Case, async: true
 
-  alias LLMDb.Schema.Provider
+  alias LLMDb.Provider
 
   describe "valid parsing" do
     test "parses minimal valid provider" do

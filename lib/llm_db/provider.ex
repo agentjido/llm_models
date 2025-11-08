@@ -6,19 +6,34 @@ defmodule LLMDb.Provider do
   environment variables, and documentation.
   """
 
-  @schema LLMDb.Schema.Provider.schema()
+  @config_field_schema Zoi.object(%{
+                         name: Zoi.string(),
+                         type: Zoi.string(),
+                         required: Zoi.boolean() |> Zoi.default(false),
+                         default: Zoi.any() |> Zoi.optional(),
+                         doc: Zoi.string() |> Zoi.optional()
+                       })
 
-  @type t :: %__MODULE__{
-          id: atom(),
-          name: String.t() | nil,
-          base_url: String.t() | nil,
-          env: [String.t()] | nil,
-          config_schema: [map()] | nil,
-          doc: String.t() | nil,
-          extra: map() | nil
-        }
+  @schema Zoi.struct(
+            __MODULE__,
+            %{
+              id: Zoi.atom(),
+              name: Zoi.string() |> Zoi.optional(),
+              base_url: Zoi.string() |> Zoi.optional(),
+              env: Zoi.array(Zoi.string()) |> Zoi.optional(),
+              config_schema: Zoi.array(@config_field_schema) |> Zoi.optional(),
+              doc: Zoi.string() |> Zoi.optional(),
+              exclude_models: Zoi.array(Zoi.string()) |> Zoi.default([]) |> Zoi.optional(),
+              extra: Zoi.map() |> Zoi.optional()
+            }, coerce: true)
 
-  defstruct [:id, :name, :base_url, :env, :config_schema, :doc, :extra]
+  @type t :: unquote(Zoi.type_spec(@schema))
+
+  @enforce_keys Zoi.Struct.enforce_keys(@schema)
+  defstruct Zoi.Struct.struct_fields(@schema)
+
+  @doc "Returns the Zoi schema for Provider"
+  def schema, do: @schema
 
   @doc """
   Creates a new Provider struct from a map, validating with Zoi schema.
@@ -33,10 +48,7 @@ defmodule LLMDb.Provider do
   """
   @spec new(map()) :: {:ok, t()} | {:error, term()}
   def new(attrs) when is_map(attrs) do
-    case Zoi.parse(@schema, attrs) do
-      {:ok, validated} -> {:ok, struct(__MODULE__, validated)}
-      {:error, _} = error -> error
-    end
+    Zoi.parse(@schema, attrs)
   end
 
   @doc """

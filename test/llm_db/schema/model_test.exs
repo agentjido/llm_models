@@ -1,7 +1,7 @@
 defmodule LLMDb.Schema.ModelTest do
   use ExUnit.Case, async: true
 
-  alias LLMDb.Schema.Model
+  alias LLMDb.Model
 
   describe "valid parsing" do
     test "parses minimal valid model" do

@@ -6,45 +6,47 @@ defmodule LLMDb.Model do
   dates, limits, costs, modalities, capabilities, tags, deprecation status, and aliases.
   """
 
-  @schema LLMDb.Schema.Model.schema()
+  require LLMDb.Schema.Capabilities
+  require LLMDb.Schema.Cost
+  require LLMDb.Schema.Limits
 
-  @type t :: %__MODULE__{
-          id: String.t(),
-          provider: atom(),
-          provider_model_id: String.t() | nil,
-          name: String.t() | nil,
-          family: String.t() | nil,
-          release_date: String.t() | nil,
-          last_updated: String.t() | nil,
-          knowledge: String.t() | nil,
-          limits: map() | nil,
-          cost: map() | nil,
-          modalities: map() | nil,
-          capabilities: map() | nil,
-          tags: [String.t()] | nil,
-          deprecated: boolean(),
-          aliases: [String.t()],
-          extra: map() | nil
-        }
+  @limits_schema LLMDb.Schema.Limits.schema()
+  @cost_schema LLMDb.Schema.Cost.schema()
+  @capabilities_schema LLMDb.Schema.Capabilities.schema()
 
-  defstruct [
-    :id,
-    :provider,
-    :provider_model_id,
-    :name,
-    :family,
-    :release_date,
-    :last_updated,
-    :knowledge,
-    :limits,
-    :cost,
-    :modalities,
-    :capabilities,
-    :tags,
-    :extra,
-    deprecated: false,
-    aliases: []
-  ]
+  @schema Zoi.struct(
+            __MODULE__,
+            %{
+              id: Zoi.string(),
+              provider: Zoi.atom(),
+              provider_model_id: Zoi.string() |> Zoi.optional(),
+              name: Zoi.string() |> Zoi.optional(),
+              family: Zoi.string() |> Zoi.optional(),
+              release_date: Zoi.string() |> Zoi.optional(),
+              last_updated: Zoi.string() |> Zoi.optional(),
+              knowledge: Zoi.string() |> Zoi.optional(),
+              limits: @limits_schema |> Zoi.optional(),
+              cost: @cost_schema |> Zoi.optional(),
+              modalities:
+                Zoi.object(%{
+                  input: Zoi.array(Zoi.atom()) |> Zoi.optional(),
+                  output: Zoi.array(Zoi.atom()) |> Zoi.optional()
+                })
+                |> Zoi.optional(),
+              capabilities: @capabilities_schema |> Zoi.optional(),
+              tags: Zoi.array(Zoi.string()) |> Zoi.optional(),
+              deprecated: Zoi.boolean() |> Zoi.default(false),
+              aliases: Zoi.array(Zoi.string()) |> Zoi.default([]),
+              extra: Zoi.map() |> Zoi.optional()
+            }, coerce: true)
+
+  @type t :: unquote(Zoi.type_spec(@schema))
+
+  @enforce_keys Zoi.Struct.enforce_keys(@schema)
+  defstruct Zoi.Struct.struct_fields(@schema)
+
+  @doc "Returns the Zoi schema for Model"
+  def schema, do: @schema
 
   @doc """
   Creates a new Model struct from a map, validating with Zoi schema.
@@ -59,10 +61,7 @@ defmodule LLMDb.Model do
   """
   @spec new(map()) :: {:ok, t()} | {:error, term()}
   def new(attrs) when is_map(attrs) do
-    case Zoi.parse(@schema, attrs) do
-      {:ok, validated} -> {:ok, struct(__MODULE__, validated)}
-      {:error, _} = error -> error
-    end
+    Zoi.parse(@schema, attrs)
   end
 
   @doc """

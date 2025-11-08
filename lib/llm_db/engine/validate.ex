@@ -8,7 +8,7 @@ defmodule LLMDb.Validate do
 
   require Logger
 
-  alias LLMDb.Schema.{Model, Provider}
+  alias LLMDb.{Model, Provider}
 
   @type validation_error :: term()
 

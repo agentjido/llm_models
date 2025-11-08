@@ -24,14 +24,14 @@ defmodule LLMDb.Spec do
   model ID. For example:
 
       iex> LLMDb.Spec.resolve("bedrock:us.anthropic.claude-opus-4-1-20250805-v1:0")
-      {:ok, {:bedrock, "us.anthropic.claude-opus-4-1-20250805-v1:0", %LLMDb.Schema.Model{}}}
+      {:ok, {:bedrock, "us.anthropic.claude-opus-4-1-20250805-v1:0", %LLMDb.Model{}}}
 
   The lookup uses "anthropic.claude-opus-4-1-20250805-v1:0" to find metadata, but the returned
   model ID retains the "us." prefix for API routing purposes.
   """
 
   alias LLMDb.{Normalize, Store}
-  alias LLMDb.Schema.Model
+  alias LLMDb.Model
 
   # Valid Bedrock inference profile region prefixes
   @bedrock_prefixes ~w(us. eu. ap. ca. global.)
@@ -375,13 +375,13 @@ defmodule LLMDb.Spec do
   ## Examples
 
       iex> LLMDb.Spec.resolve("openai:gpt-4")
-      {:ok, {:openai, "gpt-4", %LLMDb.Schema.Model{}}}
+      {:ok, {:openai, "gpt-4", %LLMDb.Model{}}}
 
       iex> LLMDb.Spec.resolve({:openai, "gpt-4"})
-      {:ok, {:openai, "gpt-4", %LLMDb.Schema.Model{}}}
+      {:ok, {:openai, "gpt-4", %LLMDb.Model{}}}
 
       iex> LLMDb.Spec.resolve("gpt-4", scope: :openai)
-      {:ok, {:openai, "gpt-4", %LLMDb.Schema.Model{}}}
+      {:ok, {:openai, "gpt-4", %LLMDb.Model{}}}
 
       iex> LLMDb.Spec.resolve("gpt-4")
       {:error, :ambiguous}
