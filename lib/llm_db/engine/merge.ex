@@ -9,6 +9,51 @@ defmodule LLMDb.Merge do
   alias LLMDb.DeepMergeShim
 
   @doc """
+  Creates a configurable deep merge resolver function.
+
+  Returns a 3-arity function that can be passed to DeepMerge.deep_merge/3
+  with customizable behavior for list and special key handling.
+
+  ## Options
+
+  - `:union_list_keys` - List of keys whose list values should be unioned (default: [])
+  - `:preserve_empty_list_keys` - List of keys where empty list on right preserves left (default: [])
+
+  ## Examples
+
+      # Model merging with list unions
+      resolver = Merge.resolver(union_list_keys: [:aliases, :tags])
+      DeepMerge.deep_merge(base, override, resolver)
+
+      # Provider merging preserving exclude_models
+      resolver = Merge.resolver(preserve_empty_list_keys: [:exclude_models])
+      DeepMerge.deep_merge(base, override, resolver)
+  """
+  @spec resolver(keyword()) :: (any(), any(), any() -> any())
+  def resolver(opts \\ []) do
+    union_keys = Keyword.get(opts, :union_list_keys, [])
+    preserve_empty_keys = Keyword.get(opts, :preserve_empty_list_keys, [])
+
+    fn
+      key, left, right when is_list(left) and is_list(right) ->
+        cond do
+          key in union_keys -> union_unique(left, right)
+          key in preserve_empty_keys and right == [] -> left
+          true -> right
+        end
+
+      _key, left, right when is_map(left) and is_map(right) ->
+        DeepMerge.continue_deep_merge()
+
+      _key, left, nil ->
+        left
+
+      _key, _left, right ->
+        right
+    end
+  end
+
+  @doc """
   Merges two maps with precedence rules.
 
   - Scalar values: higher precedence wins
@@ -61,35 +106,13 @@ defmodule LLMDb.Merge do
     override_map = Map.new(override_providers, fn p -> {Map.get(p, :id), p} end)
 
     Map.merge(base_map, override_map, fn _id, base_provider, override_provider ->
-      DeepMergeShim.deep_merge(base_provider, override_provider, &provider_merge_resolver/3)
+      DeepMergeShim.deep_merge(
+        base_provider,
+        override_provider,
+        resolver(preserve_empty_list_keys: [:exclude_models])
+      )
     end)
     |> Map.values()
-  end
-
-  defp provider_merge_resolver(:exclude_models, left_val, right_val)
-       when is_list(left_val) and is_list(right_val) do
-    # For exclude_models: don't blow away excludes with an empty list
-    case right_val do
-      [] -> left_val
-      _ -> right_val
-    end
-  end
-
-  defp provider_merge_resolver(_key, left_val, right_val)
-       when is_list(left_val) and is_list(right_val) do
-    # For lists: replace (right wins)
-    right_val
-  end
-
-  defp provider_merge_resolver(_key, left_val, right_val)
-       when is_map(left_val) and is_map(right_val) do
-    # For maps: continue deep merge
-    DeepMerge.continue_deep_merge()
-  end
-
-  defp provider_merge_resolver(_key, _left_val, right_val) do
-    # For scalars: right wins
-    right_val
   end
 
   @doc """
@@ -224,6 +247,10 @@ defmodule LLMDb.Merge do
   end
 
   # Private helpers
+
+  defp union_unique(left, right) when is_list(left) and is_list(right) do
+    (left ++ right) |> Enum.uniq()
+  end
 
   defp deep_merge(left, right, resolve_conflict) when is_map(left) and is_map(right) do
     Map.merge(left, right, fn key, left_val, right_val ->

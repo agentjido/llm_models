@@ -10,22 +10,24 @@ defmodule LLMDb.Provider do
                          name: Zoi.string(),
                          type: Zoi.string(),
                          required: Zoi.boolean() |> Zoi.default(false),
-                         default: Zoi.any() |> Zoi.optional(),
-                         doc: Zoi.string() |> Zoi.optional()
+                         default: Zoi.any() |> Zoi.nullish(),
+                         doc: Zoi.string() |> Zoi.nullish()
                        })
 
   @schema Zoi.struct(
             __MODULE__,
             %{
               id: Zoi.atom(),
-              name: Zoi.string() |> Zoi.optional(),
-              base_url: Zoi.string() |> Zoi.optional(),
-              env: Zoi.array(Zoi.string()) |> Zoi.optional(),
-              config_schema: Zoi.array(@config_field_schema) |> Zoi.optional(),
-              doc: Zoi.string() |> Zoi.optional(),
-              exclude_models: Zoi.array(Zoi.string()) |> Zoi.default([]) |> Zoi.optional(),
-              extra: Zoi.map() |> Zoi.optional()
-            }, coerce: true)
+              name: Zoi.string() |> Zoi.nullish(),
+              base_url: Zoi.string() |> Zoi.nullish(),
+              env: Zoi.array(Zoi.string()) |> Zoi.nullish(),
+              config_schema: Zoi.array(@config_field_schema) |> Zoi.nullish(),
+              doc: Zoi.string() |> Zoi.nullish(),
+              exclude_models: Zoi.array(Zoi.string()) |> Zoi.default([]) |> Zoi.nullish(),
+              extra: Zoi.map() |> Zoi.nullish()
+            },
+            coerce: true
+          )
 
   @type t :: unquote(Zoi.type_spec(@schema))
 
@@ -66,4 +68,24 @@ defmodule LLMDb.Provider do
       {:error, reason} -> raise ArgumentError, "Invalid provider: #{inspect(reason)}"
     end
   end
+end
+
+defimpl DeepMerge.Resolver, for: LLMDb.Provider do
+  @moduledoc false
+
+  def resolve(original, override = %LLMDb.Provider{}, resolver) do
+    cleaned_override =
+      override
+      |> Map.from_struct()
+      |> Enum.reject(fn {_key, value} -> is_nil(value) end)
+      |> Map.new()
+
+    Map.merge(original, cleaned_override, resolver)
+  end
+
+  def resolve(original, override, resolver) when is_map(override) do
+    Map.merge(original, override, resolver)
+  end
+
+  def resolve(_original, override, _resolver), do: override
 end

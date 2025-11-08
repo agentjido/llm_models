@@ -92,73 +92,73 @@ defmodule LLMDb.Schema.ModelTest do
     test "provider_model_id is optional" do
       input = %{id: "gpt-4o", provider: :openai}
       assert {:ok, result} = Zoi.parse(Model.schema(), input)
-      refute Map.has_key?(result, :provider_model_id)
+      assert result.provider_model_id == nil
     end
 
     test "name is optional" do
       input = %{id: "gpt-4o", provider: :openai}
       assert {:ok, result} = Zoi.parse(Model.schema(), input)
-      refute Map.has_key?(result, :name)
+      assert result.name == nil
     end
 
     test "family is optional" do
       input = %{id: "gpt-4o", provider: :openai}
       assert {:ok, result} = Zoi.parse(Model.schema(), input)
-      refute Map.has_key?(result, :family)
+      assert result.family == nil
     end
 
     test "release_date is optional" do
       input = %{id: "gpt-4o", provider: :openai}
       assert {:ok, result} = Zoi.parse(Model.schema(), input)
-      refute Map.has_key?(result, :release_date)
+      assert result.release_date == nil
     end
 
     test "last_updated is optional" do
       input = %{id: "gpt-4o", provider: :openai}
       assert {:ok, result} = Zoi.parse(Model.schema(), input)
-      refute Map.has_key?(result, :last_updated)
+      assert result.last_updated == nil
     end
 
     test "knowledge is optional" do
       input = %{id: "gpt-4o", provider: :openai}
       assert {:ok, result} = Zoi.parse(Model.schema(), input)
-      refute Map.has_key?(result, :knowledge)
+      assert result.knowledge == nil
     end
 
     test "limits is optional" do
       input = %{id: "gpt-4o", provider: :openai}
       assert {:ok, result} = Zoi.parse(Model.schema(), input)
-      refute Map.has_key?(result, :limits)
+      assert result.limits == nil
     end
 
     test "cost is optional" do
       input = %{id: "gpt-4o", provider: :openai}
       assert {:ok, result} = Zoi.parse(Model.schema(), input)
-      refute Map.has_key?(result, :cost)
+      assert result.cost == nil
     end
 
     test "modalities is optional" do
       input = %{id: "gpt-4o", provider: :openai}
       assert {:ok, result} = Zoi.parse(Model.schema(), input)
-      refute Map.has_key?(result, :modalities)
+      assert result.modalities == nil
     end
 
     test "capabilities is optional" do
       input = %{id: "gpt-4o", provider: :openai}
       assert {:ok, result} = Zoi.parse(Model.schema(), input)
-      refute Map.has_key?(result, :capabilities)
+      assert result.capabilities == nil
     end
 
     test "tags is optional" do
       input = %{id: "gpt-4o", provider: :openai}
       assert {:ok, result} = Zoi.parse(Model.schema(), input)
-      refute Map.has_key?(result, :tags)
+      assert result.tags == nil
     end
 
     test "extra is optional" do
       input = %{id: "gpt-4o", provider: :openai}
       assert {:ok, result} = Zoi.parse(Model.schema(), input)
-      refute Map.has_key?(result, :extra)
+      assert result.extra == nil
     end
   end
 

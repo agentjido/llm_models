@@ -326,33 +326,7 @@ defmodule LLMDb.Engine do
 
   # Deep merge with special list handling
   defp deep_merge_with_list_rules(left, right) when is_map(left) and is_map(right) do
-    LLMDb.DeepMergeShim.deep_merge(left, right, &model_merge_resolver/3)
-  end
-
-  defp model_merge_resolver(key, left_val, right_val)
-       when is_list(left_val) and is_list(right_val) do
-    # For lists: union if accumulative field, replace otherwise
-    if key in @list_union_keys do
-      union_unique(left_val, right_val)
-    else
-      right_val
-    end
-  end
-
-  defp model_merge_resolver(_key, left_val, right_val)
-       when is_map(left_val) and is_map(right_val) do
-    # For maps: continue deep merge
-    DeepMerge.continue_deep_merge()
-  end
-
-  defp model_merge_resolver(_key, _left_val, right_val) do
-    # For scalars: right wins
-    right_val
-  end
-
-  # Union two lists, removing duplicates while preserving left-first order
-  defp union_unique(left, right) do
-    (left ++ right) |> Enum.uniq()
+    LLMDb.DeepMergeShim.deep_merge(left, right, Merge.resolver(union_list_keys: @list_union_keys))
   end
 
   defp matches_patterns?(_model_id, []), do: false

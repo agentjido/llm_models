@@ -7,48 +7,48 @@ defmodule LLMDb.Model do
   """
 
   @limits_schema Zoi.object(%{
-                   context: Zoi.integer() |> Zoi.min(1) |> Zoi.optional(),
-                   output: Zoi.integer() |> Zoi.min(1) |> Zoi.optional()
+                   context: Zoi.integer() |> Zoi.min(1) |> Zoi.nullish(),
+                   output: Zoi.integer() |> Zoi.min(1) |> Zoi.nullish()
                  })
 
   @cost_schema Zoi.object(%{
-                 input: Zoi.number() |> Zoi.optional(),
-                 output: Zoi.number() |> Zoi.optional(),
-                 request: Zoi.number() |> Zoi.optional(),
-                 cache_read: Zoi.number() |> Zoi.optional(),
-                 cache_write: Zoi.number() |> Zoi.optional(),
-                 training: Zoi.number() |> Zoi.optional(),
-                 image: Zoi.number() |> Zoi.optional(),
-                 audio: Zoi.number() |> Zoi.optional()
+                 input: Zoi.number() |> Zoi.nullish(),
+                 output: Zoi.number() |> Zoi.nullish(),
+                 request: Zoi.number() |> Zoi.nullish(),
+                 cache_read: Zoi.number() |> Zoi.nullish(),
+                 cache_write: Zoi.number() |> Zoi.nullish(),
+                 training: Zoi.number() |> Zoi.nullish(),
+                 image: Zoi.number() |> Zoi.nullish(),
+                 audio: Zoi.number() |> Zoi.nullish()
                })
 
   @reasoning_schema Zoi.object(%{
-                      enabled: Zoi.boolean() |> Zoi.optional(),
-                      token_budget: Zoi.integer() |> Zoi.min(0) |> Zoi.optional()
+                      enabled: Zoi.boolean() |> Zoi.nullish(),
+                      token_budget: Zoi.integer() |> Zoi.min(0) |> Zoi.nullish()
                     })
 
   @tools_schema Zoi.object(%{
-                  enabled: Zoi.boolean() |> Zoi.optional(),
-                  streaming: Zoi.boolean() |> Zoi.optional(),
-                  strict: Zoi.boolean() |> Zoi.optional(),
-                  parallel: Zoi.boolean() |> Zoi.optional()
+                  enabled: Zoi.boolean() |> Zoi.nullish(),
+                  streaming: Zoi.boolean() |> Zoi.nullish(),
+                  strict: Zoi.boolean() |> Zoi.nullish(),
+                  parallel: Zoi.boolean() |> Zoi.nullish()
                 })
 
   @json_schema Zoi.object(%{
-                 native: Zoi.boolean() |> Zoi.optional(),
-                 schema: Zoi.boolean() |> Zoi.optional(),
-                 strict: Zoi.boolean() |> Zoi.optional()
+                 native: Zoi.boolean() |> Zoi.nullish(),
+                 schema: Zoi.boolean() |> Zoi.nullish(),
+                 strict: Zoi.boolean() |> Zoi.nullish()
                })
 
   @streaming_schema Zoi.object(%{
-                      text: Zoi.boolean() |> Zoi.optional(),
-                      tool_calls: Zoi.boolean() |> Zoi.optional()
+                      text: Zoi.boolean() |> Zoi.nullish(),
+                      tool_calls: Zoi.boolean() |> Zoi.nullish()
                     })
 
   @embeddings_schema Zoi.object(%{
-                       min_dimensions: Zoi.integer() |> Zoi.min(1) |> Zoi.optional(),
-                       max_dimensions: Zoi.integer() |> Zoi.min(1) |> Zoi.optional(),
-                       default_dimensions: Zoi.integer() |> Zoi.min(1) |> Zoi.optional()
+                       min_dimensions: Zoi.integer() |> Zoi.min(1) |> Zoi.nullish(),
+                       max_dimensions: Zoi.integer() |> Zoi.min(1) |> Zoi.nullish(),
+                       default_dimensions: Zoi.integer() |> Zoi.min(1) |> Zoi.nullish()
                      })
 
   @capabilities_schema Zoi.object(%{
@@ -76,25 +76,25 @@ defmodule LLMDb.Model do
             %{
               id: Zoi.string(),
               provider: Zoi.atom(),
-              provider_model_id: Zoi.string() |> Zoi.optional(),
-              name: Zoi.string() |> Zoi.optional(),
-              family: Zoi.string() |> Zoi.optional(),
-              release_date: Zoi.string() |> Zoi.optional(),
-              last_updated: Zoi.string() |> Zoi.optional(),
-              knowledge: Zoi.string() |> Zoi.optional(),
-              limits: @limits_schema |> Zoi.optional(),
-              cost: @cost_schema |> Zoi.optional(),
+              provider_model_id: Zoi.string() |> Zoi.nullish(),
+              name: Zoi.string() |> Zoi.nullish(),
+              family: Zoi.string() |> Zoi.nullish(),
+              release_date: Zoi.string() |> Zoi.nullish(),
+              last_updated: Zoi.string() |> Zoi.nullish(),
+              knowledge: Zoi.string() |> Zoi.nullish(),
+              limits: @limits_schema |> Zoi.nullish(),
+              cost: @cost_schema |> Zoi.nullish(),
               modalities:
                 Zoi.object(%{
-                  input: Zoi.array(Zoi.atom()) |> Zoi.optional(),
-                  output: Zoi.array(Zoi.atom()) |> Zoi.optional()
+                  input: Zoi.array(Zoi.atom()) |> Zoi.nullish(),
+                  output: Zoi.array(Zoi.atom()) |> Zoi.nullish()
                 })
-                |> Zoi.optional(),
-              capabilities: @capabilities_schema |> Zoi.optional(),
-              tags: Zoi.array(Zoi.string()) |> Zoi.optional(),
+                |> Zoi.nullish(),
+              capabilities: @capabilities_schema |> Zoi.nullish(),
+              tags: Zoi.array(Zoi.string()) |> Zoi.nullish(),
               deprecated: Zoi.boolean() |> Zoi.default(false),
               aliases: Zoi.array(Zoi.string()) |> Zoi.default([]),
-              extra: Zoi.map() |> Zoi.optional()
+              extra: Zoi.map() |> Zoi.nullish()
             },
             coerce: true
           )
@@ -138,4 +138,24 @@ defmodule LLMDb.Model do
       {:error, reason} -> raise ArgumentError, "Invalid model: #{inspect(reason)}"
     end
   end
+end
+
+defimpl DeepMerge.Resolver, for: LLMDb.Model do
+  @moduledoc false
+
+  def resolve(original, override = %LLMDb.Model{}, resolver) do
+    cleaned_override =
+      override
+      |> Map.from_struct()
+      |> Enum.reject(fn {_key, value} -> is_nil(value) end)
+      |> Map.new()
+
+    Map.merge(original, cleaned_override, resolver)
+  end
+
+  def resolve(original, override, resolver) when is_map(override) do
+    Map.merge(original, override, resolver)
+  end
+
+  def resolve(_original, override, _resolver), do: override
 end

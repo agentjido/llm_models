@@ -44,31 +44,31 @@ defmodule LLMDb.Schema.ProviderTest do
     test "name is optional" do
       input = %{id: :openai}
       assert {:ok, result} = Zoi.parse(Provider.schema(), input)
-      refute Map.has_key?(result, :name)
+      assert result.name == nil
     end
 
     test "base_url is optional" do
       input = %{id: :openai}
       assert {:ok, result} = Zoi.parse(Provider.schema(), input)
-      refute Map.has_key?(result, :base_url)
+      assert result.base_url == nil
     end
 
     test "env is optional" do
       input = %{id: :openai}
       assert {:ok, result} = Zoi.parse(Provider.schema(), input)
-      refute Map.has_key?(result, :env)
+      assert result.env == nil
     end
 
     test "doc is optional" do
       input = %{id: :openai}
       assert {:ok, result} = Zoi.parse(Provider.schema(), input)
-      refute Map.has_key?(result, :doc)
+      assert result.doc == nil
     end
 
     test "extra is optional" do
       input = %{id: :openai}
       assert {:ok, result} = Zoi.parse(Provider.schema(), input)
-      refute Map.has_key?(result, :extra)
+      assert result.extra == nil
     end
   end
 
