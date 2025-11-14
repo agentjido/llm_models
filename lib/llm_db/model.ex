@@ -200,6 +200,36 @@ defmodule LLMDB.Model do
     |> Map.put(key, value)
     |> Map.put(to_string(key), value)
   end
+
+  @doc """
+  Formats a model as a spec string in the given format.
+
+  Delegates to `LLMDB.Spec.format_spec/2` with the model's provider and ID.
+  If no format is specified, uses the application config `:llm_db, :model_spec_format`
+  (default: `:provider_colon_model`).
+
+  ## Parameters
+
+  - `model` - The model struct
+  - `format` - Optional format override (`:provider_colon_model`, `:model_at_provider`, `:filename_safe`)
+
+  ## Examples
+
+      iex> model = %LLMDB.Model{provider: :openai, id: "gpt-4"}
+      iex> LLMDB.Model.spec(model)
+      "openai:gpt-4"
+
+      iex> LLMDB.Model.spec(model, :model_at_provider)
+      "gpt-4@openai"
+
+      iex> LLMDB.Model.spec(model, :filename_safe)
+      "gpt-4@openai"
+  """
+  @spec spec(t()) :: String.t()
+  @spec spec(t(), atom() | nil) :: String.t()
+  def spec(%__MODULE__{provider: provider, id: id}, format \\ nil) do
+    LLMDB.Spec.format_spec({provider, id}, format)
+  end
 end
 
 defimpl DeepMerge.Resolver, for: LLMDB.Model do

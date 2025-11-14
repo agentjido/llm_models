@@ -85,4 +85,26 @@ defmodule LLMDB.ModelStructAPITest do
       assert caps.tools.enabled == true
     end
   end
+
+  describe "LLMDB.Model.spec/2" do
+    test "formats model as default spec string" do
+      {:ok, model} = LLMDB.model(:openai, "gpt-4o-mini")
+      assert LLMDB.Model.spec(model) == "openai:gpt-4o-mini"
+    end
+
+    test "formats model with explicit :provider_colon_model format" do
+      {:ok, model} = LLMDB.model(:openai, "gpt-4o-mini")
+      assert LLMDB.Model.spec(model, :provider_colon_model) == "openai:gpt-4o-mini"
+    end
+
+    test "formats model with :model_at_provider format" do
+      {:ok, model} = LLMDB.model(:openai, "gpt-4o-mini")
+      assert LLMDB.Model.spec(model, :model_at_provider) == "gpt-4o-mini@openai"
+    end
+
+    test "formats model with :filename_safe format" do
+      {:ok, model} = LLMDB.model(:openai, "gpt-4o-mini")
+      assert LLMDB.Model.spec(model, :filename_safe) == "gpt-4o-mini@openai"
+    end
+  end
 end
