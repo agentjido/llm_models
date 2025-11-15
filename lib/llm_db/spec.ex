@@ -138,7 +138,15 @@ defmodule LLMDB.Spec do
 
     case {has_colon, has_at, Keyword.get(opts, :format)} do
       {true, true, nil} ->
-        {:error, :ambiguous_format}
+        # When both separators present, prioritize based on which comes first
+        colon_pos = :binary.match(spec, ":") |> elem(0)
+        at_pos = :binary.match(spec, "@") |> elem(0)
+
+        if colon_pos < at_pos do
+          parse_colon_format(spec)
+        else
+          parse_at_format(spec)
+        end
 
       {true, true, :colon} ->
         parse_colon_format(spec)
@@ -331,18 +339,12 @@ defmodule LLMDB.Spec do
     end
   end
 
-  defp validate_model_segment(segment, format) do
+  defp validate_model_segment(segment, _format) do
     trimmed = String.trim(segment)
 
     cond do
       trimmed == "" ->
         {:error, :empty_segment}
-
-      format == :colon && String.contains?(segment, "@") ->
-        {:error, :invalid_chars}
-
-      format == :at && String.contains?(segment, ":") ->
-        {:error, :invalid_chars}
 
       true ->
         {:ok, segment}
