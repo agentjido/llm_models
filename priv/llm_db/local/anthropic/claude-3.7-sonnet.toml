@@ -1,6 +1,0 @@
-id = "claude-3.7-sonnet"
-
-aliases = [
-  "claude-3-7-sonnet-latest",
-  "claude-3.7-sonnet:thinking"
-]

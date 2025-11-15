@@ -1,7 +1,7 @@
 # Anthropic Provider Definition
 id = "anthropic"
 name = "Anthropic"
-base_url = "https://api.anthropic.com/v1"
+base_url = "https://api.anthropic.com"
 doc = "https://docs.anthropic.com"
 
 env = ["ANTHROPIC_API_KEY"]
@@ -16,7 +16,6 @@ exclude_models = [
   "claude-3-sonnet-20240229",
   "claude-3-opus-20240229",
   "claude-3-5-sonnet-20241022",
-  "claude-3-7-sonnet-20250219",
   "claude-instant-1.0",
   "claude-instant-1.1",
   "claude-instant-1.2",
@@ -26,7 +25,6 @@ exclude_models = [
   "claude-3-haiku",
   "claude-3.5-sonnet",
   "claude-3-7-sonnet-latest",
-  "claude-3.7-sonnet:thinking",
   "claude-haiku-4-5",
   "claude-haiku-4.5",
   "claude-opus-4-0",

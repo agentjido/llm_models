@@ -4,3 +4,6 @@ aliases = [
   "claude-sonnet-4-0",
   "claude-sonnet-4"
 ]
+
+[lifecycle]
+status = "active"

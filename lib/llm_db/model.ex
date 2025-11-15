@@ -3,7 +3,7 @@ defmodule LLMDB.Model do
   Model struct with Zoi schema validation.
 
   Represents an LLM model with complete metadata including identity, provider,
-  dates, limits, costs, modalities, capabilities, tags, deprecation status, and aliases.
+  dates, limits, costs, modalities, capabilities, tags, lifecycle status, and aliases.
   """
 
   @limits_schema Zoi.object(%{
@@ -50,6 +50,13 @@ defmodule LLMDB.Model do
                       tool_calls: Zoi.boolean() |> Zoi.nullish()
                     })
 
+  @lifecycle_schema Zoi.object(%{
+                      status: Zoi.enum(["active", "deprecated", "retired"]) |> Zoi.nullish(),
+                      deprecated_at: Zoi.string() |> Zoi.nullish(),
+                      retires_at: Zoi.string() |> Zoi.nullish(),
+                      replacement: Zoi.string() |> Zoi.nullish()
+                    })
+
   @embeddings_schema Zoi.object(%{
                        min_dimensions: Zoi.integer() |> Zoi.min(1) |> Zoi.nullish(),
                        max_dimensions: Zoi.integer() |> Zoi.min(1) |> Zoi.nullish(),
@@ -93,6 +100,7 @@ defmodule LLMDB.Model do
              :capabilities,
              :tags,
              :deprecated,
+             :lifecycle,
              :aliases,
              :extra
            ]}
@@ -120,6 +128,7 @@ defmodule LLMDB.Model do
               capabilities: @capabilities_schema |> Zoi.nullish(),
               tags: Zoi.array(Zoi.string()) |> Zoi.nullish(),
               deprecated: Zoi.boolean() |> Zoi.default(false),
+              lifecycle: @lifecycle_schema |> Zoi.nullish(),
               aliases: Zoi.array(Zoi.string()) |> Zoi.default([]),
               extra: Zoi.map() |> Zoi.nullish()
             },

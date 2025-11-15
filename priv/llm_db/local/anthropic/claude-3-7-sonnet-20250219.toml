@@ -1,0 +1,13 @@
+id = "claude-3-7-sonnet-20250219"
+
+aliases = [
+  "claude-3-7-sonnet",
+  "claude-3.7-sonnet",
+  "claude-3-7-sonnet-latest"
+]
+
+[lifecycle]
+status = "deprecated"
+deprecated_at = "2025-02-19"
+retires_at = "2026-02-19"
+replacement = "claude-sonnet-4-5-20250929"

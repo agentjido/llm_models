@@ -3,3 +3,6 @@ id = "claude-3-haiku-20240307"
 aliases = [
   "claude-3-haiku"
 ]
+
+[lifecycle]
+status = "active"

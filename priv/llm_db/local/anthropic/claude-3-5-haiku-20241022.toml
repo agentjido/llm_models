@@ -5,3 +5,6 @@ aliases = [
   "claude-3.5-haiku",
   "claude-3.5-haiku-20241022"
 ]
+
+[lifecycle]
+status = "active"
