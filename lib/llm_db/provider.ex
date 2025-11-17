@@ -24,7 +24,8 @@ defmodule LLMDB.Provider do
               config_schema: Zoi.array(@config_field_schema) |> Zoi.nullish(),
               doc: Zoi.string() |> Zoi.nullish(),
               exclude_models: Zoi.array(Zoi.string()) |> Zoi.default([]) |> Zoi.nullish(),
-              extra: Zoi.map() |> Zoi.nullish()
+              extra: Zoi.map() |> Zoi.nullish(),
+              alias_of: Zoi.atom() |> Zoi.nullish()
             },
             coerce: true
           )

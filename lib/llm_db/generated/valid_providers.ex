@@ -81,6 +81,7 @@ defmodule LLMDB.Generated.ValidProviders do
     :openrouter,
     :ovhcloud,
     :perplexity,
+    :providers,
     :qwen,
     :raifle,
     :relace,

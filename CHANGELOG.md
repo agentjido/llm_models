@@ -11,10 +11,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Provider alias system to enable single implementation handling models from multiple LLMDB providers
+  - New `alias_of` field in Provider struct points aliased provider to primary implementation
+  - `LLMDB.Store.models/1` now searches aliased providers when looking up by provider ID
+  - `LLMDB.Store.model/2` normalizes provider field back to requested provider for aliased models
+  - First implementation: `google_vertex_anthropic` aliases to `google_vertex` for Claude models on Vertex AI
 - `provider_model_id` field for AWS Bedrock inference profile models that require API-specific identifiers
   - Enables models to use canonical IDs (e.g., `anthropic.claude-haiku-4-5-20251001-v1:0`) while making API calls with inference profile prefixes (e.g., `us.anthropic.claude-haiku-4-5-20251001-v1:0`)
   - Addresses AWS requirement: "Invocation of model ID [...] with on-demand throughput isn't supported. Retry your request with the ID or ARN of an inference profile"
   - Applied to: Claude Haiku 4.5, Claude Sonnet 4.5, Claude Opus 4.1, Llama 3.3 70B, Llama 3.2 3B
+
+### Changed
+
+- ModelsDev transformer now auto-sets `tools.streaming: true` and `streaming.tool_calls: true` when `tool_call: true`
+  - Reflects reality: 99%+ of tool-capable models support streaming tool calls
+  - Eliminates need for model-specific TOML overrides for common case
+  - Rare exceptions can override with `streaming.tool_calls: false` in TOML
 
 ### Fixed
 

@@ -337,7 +337,8 @@ defmodule LLMDB.Sources.ModelsDev do
     capabilities =
       %{}
       |> put_if_true(:reasoning, %{enabled: true}, source_model["reasoning"])
-      |> put_if_true(:tools, %{enabled: true}, source_model["tool_call"])
+      |> put_if_true(:tools, %{enabled: true, streaming: true}, source_model["tool_call"])
+      |> put_if_true(:streaming, %{tool_calls: true}, source_model["tool_call"])
 
     if map_size(capabilities) > 0 do
       Map.put(model, :capabilities, capabilities)

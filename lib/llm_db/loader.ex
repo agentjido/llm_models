@@ -306,11 +306,14 @@ defmodule LLMDB.Loader do
   end
 
   defp build_snapshot(providers, filtered_models, base_models, runtime, generated_at) do
+    # Apply provider aliases AFTER all sources are loaded
+    providers_with_aliases = apply_provider_aliases(providers)
+
     %{
-      providers_by_id: index_providers(providers),
+      providers_by_id: index_providers(providers_with_aliases),
       models_by_key: index_models(filtered_models),
       aliases_by_key: index_aliases(filtered_models),
-      providers: providers,
+      providers: providers_with_aliases,
       models: Enum.group_by(filtered_models, & &1.provider),
       base_models: base_models,
       filters: runtime.filters,
@@ -322,6 +325,24 @@ defmodule LLMDB.Loader do
         digest: compute_digest(providers, base_models, runtime)
       }
     }
+  end
+
+  # Apply provider aliases post-load (after all sources merged)
+  # This handles cases where a single implementation (e.g., GoogleVertex)
+  # should handle models from multiple LLMDB providers
+  defp apply_provider_aliases(providers) do
+    # Hardcoded provider alias mappings
+    # Key: aliased provider ID, Value: primary provider ID
+    alias_map = %{
+      google_vertex_anthropic: :google_vertex
+    }
+
+    Enum.map(providers, fn provider ->
+      case Map.get(alias_map, provider.id) do
+        nil -> provider
+        primary_id -> Map.put(provider, :alias_of, primary_id)
+      end
+    end)
   end
 
   defp index_providers(providers), do: Map.new(providers, &{&1.id, &1})
