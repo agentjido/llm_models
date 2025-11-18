@@ -235,10 +235,10 @@ Snapshot is shipped with the library. To rebuild with fresh data:
 
 ```bash
 # Fetch upstream data (optional)
-mix llm_db.pull
+mix llmdb.pull
 
 # Run ETL and write snapshot.json
-mix llm_db.build
+mix llmdb.build
 ```
 
 See the [Sources & Engine](guides/sources-and-engine.md) guide for details.
