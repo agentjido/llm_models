@@ -69,23 +69,24 @@ defmodule Mix.Tasks.LlmDb.Build do
       |> Enum.map(fn {provider_id, provider_data} ->
         filename = "#{provider_id}.json"
         path = Path.join(@providers_dir, filename)
-        
+
         provider_output = map_with_string_keys(provider_data)
         json = Jason.encode!(provider_output, pretty: true)
         File.write!(path, json)
-        
+
         Atom.to_string(provider_id)
       end)
       |> Enum.sort()
 
     # Write manifest with metadata
     File.mkdir_p!(Path.dirname(@manifest_path))
+
     manifest = %{
       "version" => snapshot.version,
       "generated_at" => snapshot.generated_at,
       "providers" => provider_ids
     }
-    
+
     json = Jason.encode!(manifest, pretty: true)
     File.write!(@manifest_path, json)
 

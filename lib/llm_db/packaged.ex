@@ -80,15 +80,16 @@ defmodule LLMDB.Packaged do
     # Read manifest at compile time
     manifest_content = File.read!(@manifest_compile_path)
     manifest_data = Jason.decode!(manifest_content, keys: :atoms)
-    
+
     # Load all provider files at compile time
     providers_compile_dir = Application.app_dir(:llm_db, @providers_dir)
+
     providers_map =
       manifest_data.providers
       |> Enum.map(fn provider_id ->
         provider_path = Path.join(providers_compile_dir, "#{provider_id}.json")
         @external_resource provider_path
-        
+
         provider_content = File.read!(provider_path)
         provider_data = Jason.decode!(provider_content, keys: :atoms)
         {String.to_atom(provider_id), provider_data}
@@ -137,7 +138,7 @@ defmodule LLMDB.Packaged do
           generated_at: manifest.generated_at,
           providers: providers_map
         }
-        
+
         validate_schema(snapshot)
         snapshot
       else
@@ -164,18 +165,19 @@ defmodule LLMDB.Packaged do
         provider_ids
         |> Enum.map(fn provider_id ->
           provider_path = Path.join(providers_dir(), "#{provider_id}.json")
-          
+
           case File.read(provider_path) do
             {:ok, content} ->
               provider_data = Jason.decode!(content, keys: :atoms)
               # Provider ID is already an atom in the decoded data
-              provider_atom = 
+              provider_atom =
                 case provider_data[:id] do
                   id when is_atom(id) -> id
                   id when is_binary(id) -> String.to_existing_atom(id)
                 end
+
               {provider_atom, provider_data}
-            
+
             {:error, reason} ->
               Logger.warning("llm_db: failed to load provider #{provider_id}: #{inspect(reason)}")
               nil
@@ -183,7 +185,7 @@ defmodule LLMDB.Packaged do
         end)
         |> Enum.reject(&is_nil/1)
         |> Map.new()
-      
+
       {:ok, providers_map}
     end
 
