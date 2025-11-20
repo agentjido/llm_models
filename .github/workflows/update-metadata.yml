@@ -1,0 +1,130 @@
+name: Update & Bump metadata
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 5 * * *' # Daily at 5am UTC
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-bump:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Elixir
+        uses: erlef/setup-beam@v1
+        with:
+          elixir-version: '1.16'
+          otp-version: '26'
+
+      - name: Install dependencies
+        run: |
+          mix local.rebar --force
+          mix local.hex --force
+          mix deps.get
+
+      - name: Update data
+        run: |
+          mix llm_db.pull
+          mix llm_db.build
+
+      - name: Check for changes
+        id: git_status
+        run: |
+          if git diff --quiet priv/llm_db; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Compute CalVer and bump version
+        if: steps.git_status.outputs.changed == 'true'
+        id: calver
+        shell: bash
+        run: |
+          set -euo pipefail
+          DATE_PREFIX=$(date -u +'%Y.%m')
+          LAST_TAG=$(git tag --list "v${DATE_PREFIX}.*" --sort=-v:refname | head -n1 || true)
+
+          if [ -z "$LAST_TAG" ]; then
+            PATCH=1
+          else
+            LAST_VERSION=${LAST_TAG#v}
+            PATCH_PART=${LAST_VERSION#${DATE_PREFIX}.}
+            PATCH=${PATCH_PART%%-*}
+            PATCH=$((PATCH + 1))
+          fi
+
+          VERSION="${DATE_PREFIX}.${PATCH}-preview"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          
+          # Update mix.exs
+          sed -i.bak -E "s/@version \"[^\"]+\"/@version \"$VERSION\"/" mix.exs
+          rm mix.exs.bak
+
+      - name: Setup Node.js
+        if: steps.git_status.outputs.changed == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Amp CLI
+        if: steps.git_status.outputs.changed == 'true'
+        run: npm install -g @sourcegraph/amp
+
+      - name: Generate Changelog with Amp
+        if: steps.git_status.outputs.changed == 'true'
+        env:
+          AMP_API_KEY: ${{ secrets.AMP_API_KEY }}
+        run: |
+          # Create diff file
+          git diff priv/llm_db > data.diff
+          
+          # Create Amp input
+          cat > amp_prompt.txt << 'EOF'
+          You are a release manager. Analyze the attached git diff of the LLM model database (JSON files broken out by provider).
+          Summarize the changes in a changelog format.
+          
+          Requirements:
+          - Use Markdown bullet points.
+          - Group by "Added", "Changed", "Removed".
+          - Highlight significant changes like new models or price updates.
+          - Be concise but specific (e.g. "Added GPT-5", not just "Added new model").
+          - Do NOT include "Here is the summary" or conversational filler. Just the changelog entries.
+          
+          Diff:
+          EOF
+          
+          cat data.diff >> amp_prompt.txt
+          
+          # Run Amp
+          cat amp_prompt.txt | amp > amp_output.txt
+          
+          # Save to a file for the PR body
+          cp amp_output.txt pr_body.md
+          
+          # Inject into CHANGELOG.md under [Unreleased]
+          # We insert after the ## [Unreleased] line
+          sed -i.bak '/## \[Unreleased\]/r amp_output.txt' CHANGELOG.md
+          rm CHANGELOG.md.bak
+
+      - name: Create or Update metadata PR
+        if: steps.git_status.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: bot/metadata-update
+          commit-message: "chore(metadata): update data and bump to ${{ steps.calver.outputs.version }}"
+          title: "chore(metadata): update data to ${{ steps.calver.outputs.version }}"
+          body-path: pr_body.md
+          labels: |
+            metadata-update
+          delete-branch: true

@@ -31,6 +31,18 @@
       "owned_by": "xai"
     },
     {
+      "created": 1763510400,
+      "id": "grok-4-1-fast-non-reasoning",
+      "object": "model",
+      "owned_by": "xai"
+    },
+    {
+      "created": 1763510400,
+      "id": "grok-4-1-fast-reasoning",
+      "object": "model",
+      "owned_by": "xai"
+    },
+    {
       "created": 1756944000,
       "id": "grok-4-fast-non-reasoning",
       "object": "model",

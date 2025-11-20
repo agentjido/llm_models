@@ -656,6 +656,63 @@
       "release_date": "2025-11-13",
       "tags": null
     },
+    "x-ai/grok-4.1-fast": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.05,
+        "cache_write": 0.05,
+        "input": 0.2,
+        "output": 0.5
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "x-ai/grok-4.1-fast",
+      "knowledge": "2024-11",
+      "last_updated": "2025-11-19",
+      "lifecycle": null,
+      "limits": {
+        "context": 2000000,
+        "output": 30000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Grok 4.1 Fast",
+      "provider": "openrouter",
+      "provider_model_id": null,
+      "release_date": "2025-11-19",
+      "tags": null
+    },
     "x-ai/grok-3-beta": {
       "aliases": [],
       "capabilities": {
@@ -1950,6 +2007,64 @@
       "release_date": "2025-01-15",
       "tags": null
     },
+    "google/gemini-3-pro-preview": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "input": 2,
+        "output": 12
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": true,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "google/gemini-3-pro-preview",
+      "knowledge": "2025-01",
+      "last_updated": "2025-11",
+      "lifecycle": null,
+      "limits": {
+        "context": 1050000,
+        "output": 66000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "pdf"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Gemini 3 Pro Preview",
+      "provider": "openrouter",
+      "provider_model_id": null,
+      "release_date": "2025-11-18",
+      "tags": null
+    },
     "anthropic/claude-3.7-sonnet": {
       "aliases": [],
       "capabilities": {
@@ -3002,61 +3117,6 @@
       "provider": "openrouter",
       "provider_model_id": null,
       "release_date": "2025-07-10",
-      "tags": null
-    },
-    "openrouter/polaris-alpha": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": false
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "input": 0,
-        "output": 0
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": true,
-        "open_weights": false,
-        "temperature": false
-      },
-      "family": null,
-      "id": "openrouter/polaris-alpha",
-      "knowledge": "2025-07",
-      "last_updated": "2025-07-30",
-      "lifecycle": null,
-      "limits": {
-        "context": 256000,
-        "output": 128000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "Polaris Alpha",
-      "provider": "openrouter",
-      "provider_model_id": null,
-      "release_date": "2025-07-30",
       "tags": null
     },
     "deepseek/deepseek-r1-distill-llama-70b": {

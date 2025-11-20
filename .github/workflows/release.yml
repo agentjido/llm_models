@@ -45,6 +45,11 @@ jobs:
           HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
         run: mix hex.publish --yes
 
+      - name: Retire old versions
+        env:
+          HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
+        run: elixir .github/scripts/retire_old.exs
+
       - name: Extract version from tag
         id: version
         run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
