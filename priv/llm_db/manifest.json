@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-11-27T17:58:32.599207Z",
+  "generated_at": "2025-11-30T00:21:17.606259Z",
   "providers": [
     "agentrouter",
     "ai21",
@@ -47,7 +47,7 @@
     "inception",
     "inference",
     "inflection",
-    "io_intelligence",
+    "io_net",
     "kwaipilot",
     "liquid",
     "llama",
@@ -58,6 +58,7 @@
     "meta-llama",
     "microsoft",
     "minimax",
+    "minimax_cn",
     "mistral",
     "mistralai",
     "modelscope",

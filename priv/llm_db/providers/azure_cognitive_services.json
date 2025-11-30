@@ -67,6 +67,43 @@
       "release_date": "2025-08-07",
       "tags": null
     },
+    "cohere-embed-v3-english": {
+      "aliases": [],
+      "capabilities": null,
+      "cost": {
+        "input": 0.1,
+        "output": 0
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": false
+      },
+      "family": null,
+      "id": "cohere-embed-v3-english",
+      "knowledge": null,
+      "last_updated": "2023-11-07",
+      "lifecycle": null,
+      "limits": {
+        "context": 512,
+        "output": 1024
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Embed v3 English",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2023-11-07",
+      "tags": null
+    },
     "claude-opus-4-5": {
       "aliases": [],
       "capabilities": {
@@ -181,6 +218,119 @@
       "provider": "azure_cognitive_services",
       "provider_model_id": null,
       "release_date": "2025-04-14",
+      "tags": null
+    },
+    "deepseek-r1": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "text": true,
+          "tool_calls": false
+        },
+        "tools": {
+          "enabled": false,
+          "parallel": false,
+          "streaming": false,
+          "strict": false
+        }
+      },
+      "cost": {
+        "input": 1.35,
+        "output": 5.4
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "deepseek-r1",
+      "knowledge": "2024-07",
+      "last_updated": "2025-01-20",
+      "lifecycle": null,
+      "limits": {
+        "context": 163840,
+        "output": 163840
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "DeepSeek-R1",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-01-20",
+      "tags": null
+    },
+    "grok-3": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.75,
+        "input": 3,
+        "output": 15
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "grok-3",
+      "knowledge": "2024-11",
+      "last_updated": "2025-02-17",
+      "lifecycle": null,
+      "limits": {
+        "context": 131072,
+        "output": 8192
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Grok 3",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-02-17",
       "tags": null
     },
     "gpt-4o": {
@@ -449,6 +599,42 @@
       "release_date": "2025-11-14",
       "tags": null
     },
+    "text-embedding-3-large": {
+      "aliases": [],
+      "capabilities": null,
+      "cost": {
+        "input": 0.13,
+        "output": 0
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false
+      },
+      "family": null,
+      "id": "text-embedding-3-large",
+      "knowledge": null,
+      "last_updated": "2024-01-25",
+      "lifecycle": null,
+      "limits": {
+        "context": 8191,
+        "output": 3072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "text-embedding-3-large",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2024-01-25",
+      "tags": null
+    },
     "gpt-4o-mini": {
       "aliases": [],
       "capabilities": {
@@ -712,6 +898,151 @@
       "release_date": "2024-01-25",
       "tags": null
     },
+    "cohere-embed-v3-multilingual": {
+      "aliases": [],
+      "capabilities": null,
+      "cost": {
+        "input": 0.1,
+        "output": 0
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": false
+      },
+      "family": null,
+      "id": "cohere-embed-v3-multilingual",
+      "knowledge": null,
+      "last_updated": "2023-11-07",
+      "lifecycle": null,
+      "limits": {
+        "context": 512,
+        "output": 1024
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Embed v3 Multilingual",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2023-11-07",
+      "tags": null
+    },
+    "cohere-command-r-08-2024": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "input": 0.15,
+        "output": 0.6
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "cohere-command-r-08-2024",
+      "knowledge": "2024-06-01",
+      "last_updated": "2024-08-30",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 4000
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Command R",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2024-08-30",
+      "tags": null
+    },
+    "cohere-command-r-plus-08-2024": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "input": 2.5,
+        "output": 10
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "cohere-command-r-plus-08-2024",
+      "knowledge": "2024-06-01",
+      "last_updated": "2024-08-30",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 4000
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Command R+",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2024-08-30",
+      "tags": null
+    },
     "claude-haiku-4-5": {
       "aliases": [],
       "capabilities": {
@@ -771,6 +1102,116 @@
       "provider": "azure_cognitive_services",
       "provider_model_id": null,
       "release_date": "2025-11-18",
+      "tags": null
+    },
+    "grok-3-mini": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.075,
+        "input": 0.3,
+        "output": 0.5,
+        "reasoning": 0.5
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "grok-3-mini",
+      "knowledge": "2024-11",
+      "last_updated": "2025-02-17",
+      "lifecycle": null,
+      "limits": {
+        "context": 131072,
+        "output": 8192
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Grok 3 Mini",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-02-17",
+      "tags": null
+    },
+    "model-router": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "input": 0.14,
+        "output": 0
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": true,
+        "open_weights": false
+      },
+      "family": null,
+      "id": "model-router",
+      "knowledge": null,
+      "last_updated": "2025-11-18",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 16384
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Model Router",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-05-19",
       "tags": null
     },
     "gpt-5-nano": {
@@ -885,6 +1326,61 @@
       "release_date": "2025-09-15",
       "tags": null
     },
+    "mistral-small-2503": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "input": 0.1,
+        "output": 0.3
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": true,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "mistral-small-2503",
+      "knowledge": "2024-09",
+      "last_updated": "2025-03-01",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Mistral Small 3.1",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-03-01",
+      "tags": null
+    },
     "o1": {
       "aliases": [],
       "capabilities": {
@@ -941,6 +1437,119 @@
       "release_date": "2024-12-05",
       "tags": null
     },
+    "deepseek-r1-0528": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "text": true,
+          "tool_calls": false
+        },
+        "tools": {
+          "enabled": false,
+          "parallel": false,
+          "streaming": false,
+          "strict": false
+        }
+      },
+      "cost": {
+        "input": 1.35,
+        "output": 5.4
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "deepseek-r1-0528",
+      "knowledge": "2024-07",
+      "last_updated": "2025-05-28",
+      "lifecycle": null,
+      "limits": {
+        "context": 163840,
+        "output": 163840
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "DeepSeek-R1-0528",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-05-28",
+      "tags": null
+    },
+    "grok-code-fast-1": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.02,
+        "input": 0.2,
+        "output": 1.5
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "grok-code-fast-1",
+      "knowledge": "2023-10",
+      "last_updated": "2025-08-28",
+      "lifecycle": null,
+      "limits": {
+        "context": 256000,
+        "output": 10000
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Grok Code Fast 1",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-08-28",
+      "tags": null
+    },
     "gpt-4-32k": {
       "aliases": [],
       "capabilities": {
@@ -993,6 +1602,152 @@
       "provider": "azure_cognitive_services",
       "provider_model_id": null,
       "release_date": "2023-03-14",
+      "tags": null
+    },
+    "mistral-nemo": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "input": 0.15,
+        "output": 0.15
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "mistral-nemo",
+      "knowledge": "2024-07",
+      "last_updated": "2024-07-18",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 128000
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Mistral Nemo",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2024-07-18",
+      "tags": null
+    },
+    "cohere-embed-v-4-0": {
+      "aliases": [],
+      "capabilities": null,
+      "cost": {
+        "input": 0.12,
+        "output": 0
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": true,
+        "open_weights": true,
+        "temperature": false
+      },
+      "family": null,
+      "id": "cohere-embed-v-4-0",
+      "knowledge": null,
+      "last_updated": "2025-04-15",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 1536
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Embed v4",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-04-15",
+      "tags": null
+    },
+    "cohere-command-a": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "input": 2.5,
+        "output": 10
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "cohere-command-a",
+      "knowledge": "2024-06-01",
+      "last_updated": "2025-03-13",
+      "lifecycle": null,
+      "limits": {
+        "context": 256000,
+        "output": 8000
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Command A",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-03-13",
       "tags": null
     },
     "o3-mini": {
@@ -1104,6 +1859,96 @@
       "provider": "azure_cognitive_services",
       "provider_model_id": null,
       "release_date": "2025-04-14",
+      "tags": null
+    },
+    "ministral-3b": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "input": 0.04,
+        "output": 0.04
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "ministral-3b",
+      "knowledge": "2024-03",
+      "last_updated": "2024-10-22",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 8192
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Ministral 3B",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2024-10-22",
+      "tags": null
+    },
+    "text-embedding-ada-002": {
+      "aliases": [],
+      "capabilities": null,
+      "cost": {
+        "input": 0.1,
+        "output": 0
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false
+      },
+      "family": null,
+      "id": "text-embedding-ada-002",
+      "knowledge": null,
+      "last_updated": "2022-12-15",
+      "lifecycle": null,
+      "limits": {
+        "context": 8192,
+        "output": 1536
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "text-embedding-ada-002",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2022-12-15",
       "tags": null
     },
     "gpt-4.1-mini": {
@@ -1274,6 +2119,61 @@
       "release_date": "2025-08-07",
       "tags": null
     },
+    "mistral-medium-2505": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "input": 0.4,
+        "output": 2
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": true,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "mistral-medium-2505",
+      "knowledge": "2025-05",
+      "last_updated": "2025-05-07",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 128000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Mistral Medium 3",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-05-07",
+      "tags": null
+    },
     "gpt-3.5-turbo-0613": {
       "aliases": [],
       "capabilities": null,
@@ -1405,6 +2305,172 @@
       "provider": "azure_cognitive_services",
       "provider_model_id": null,
       "release_date": "2023-03-01",
+      "tags": null
+    },
+    "deepseek-v3.1": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "input": 0.56,
+        "output": 1.68
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "deepseek-v3.1",
+      "knowledge": "2024-07",
+      "last_updated": "2025-08-21",
+      "lifecycle": null,
+      "limits": {
+        "context": 131072,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "DeepSeek-V3.1",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-08-21",
+      "tags": null
+    },
+    "grok-4-fast-reasoning": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.05,
+        "input": 0.2,
+        "output": 0.5
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": true,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "grok-4-fast-reasoning",
+      "knowledge": "2025-07",
+      "last_updated": "2025-09-19",
+      "lifecycle": null,
+      "limits": {
+        "context": 2000000,
+        "output": 30000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Grok 4 Fast (Reasoning)",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-09-19",
+      "tags": null
+    },
+    "grok-4-fast-non-reasoning": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.05,
+        "input": 0.2,
+        "output": 0.5
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": true,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "grok-4-fast-non-reasoning",
+      "knowledge": "2025-07",
+      "last_updated": "2025-09-19",
+      "lifecycle": null,
+      "limits": {
+        "context": 2000000,
+        "output": 30000
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Grok 4 Fast (Non-Reasoning)",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-09-19",
       "tags": null
     },
     "o1-preview": {
@@ -1581,6 +2647,42 @@
       "release_date": "2025-08-07",
       "tags": null
     },
+    "text-embedding-3-small": {
+      "aliases": [],
+      "capabilities": null,
+      "cost": {
+        "input": 0.02,
+        "output": 0
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false
+      },
+      "family": null,
+      "id": "text-embedding-3-small",
+      "knowledge": null,
+      "last_updated": "2024-01-25",
+      "lifecycle": null,
+      "limits": {
+        "context": 8191,
+        "output": 1536
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "text-embedding-3-small",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2024-01-25",
+      "tags": null
+    },
     "claude-opus-4-1": {
       "aliases": [],
       "capabilities": {
@@ -1735,6 +2837,60 @@
       "release_date": "2025-04-16",
       "tags": null
     },
+    "deepseek-v3-0324": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "input": 1.14,
+        "output": 4.56
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "deepseek-v3-0324",
+      "knowledge": "2024-07",
+      "last_updated": "2025-03-24",
+      "lifecycle": null,
+      "limits": {
+        "context": 131072,
+        "output": 131072
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "DeepSeek-V3-0324",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-03-24",
+      "tags": null
+    },
     "codex-mini": {
       "aliases": [],
       "capabilities": {
@@ -1790,6 +2946,114 @@
       "release_date": "2025-05-16",
       "tags": null
     },
+    "mistral-large-2411": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "input": 2,
+        "output": 6
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "mistral-large-2411",
+      "knowledge": "2024-09",
+      "last_updated": "2024-11-01",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 32768
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Mistral Large 24.11",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2024-11-01",
+      "tags": null
+    },
+    "codestral-2501": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "input": 0.3,
+        "output": 0.9
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "codestral-2501",
+      "knowledge": "2024-03",
+      "last_updated": "2025-01-01",
+      "lifecycle": null,
+      "limits": {
+        "context": 256000,
+        "output": 256000
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Codestral 25.01",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-01-01",
+      "tags": null
+    },
     "gpt-4-turbo-vision": {
       "aliases": [],
       "capabilities": {
@@ -1843,6 +3107,62 @@
       "provider": "azure_cognitive_services",
       "provider_model_id": null,
       "release_date": "2023-11-06",
+      "tags": null
+    },
+    "grok-4": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.75,
+        "input": 3,
+        "output": 15,
+        "reasoning": 15
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "grok-4",
+      "knowledge": "2025-07",
+      "last_updated": "2025-07-09",
+      "lifecycle": null,
+      "limits": {
+        "context": 256000,
+        "output": 64000
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Grok 4",
+      "provider": "azure_cognitive_services",
+      "provider_model_id": null,
+      "release_date": "2025-07-09",
       "tags": null
     }
   },
