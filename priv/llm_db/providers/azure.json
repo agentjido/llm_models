@@ -932,7 +932,32 @@
     },
     "text-embedding-3-large": {
       "aliases": [],
-      "capabilities": null,
+      "capabilities": {
+        "chat": true,
+        "embeddings": {
+          "default_dimensions": 3072,
+          "max_dimensions": 3072,
+          "min_dimensions": 1
+        },
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "text": true,
+          "tool_calls": false
+        },
+        "tools": {
+          "enabled": false,
+          "parallel": false,
+          "streaming": false,
+          "strict": false
+        }
+      },
       "cost": {
         "input": 0.13,
         "output": 0
@@ -940,7 +965,8 @@
       "deprecated": false,
       "extra": {
         "attachment": false,
-        "open_weights": false
+        "open_weights": false,
+        "type": "embedding"
       },
       "family": null,
       "id": "text-embedding-3-large",
@@ -956,7 +982,8 @@
           "text"
         ],
         "output": [
-          "text"
+          "text",
+          "embedding"
         ]
       },
       "model": null,
@@ -2637,7 +2664,32 @@
     },
     "text-embedding-ada-002": {
       "aliases": [],
-      "capabilities": null,
+      "capabilities": {
+        "chat": true,
+        "embeddings": {
+          "default_dimensions": 1536,
+          "max_dimensions": 1536,
+          "min_dimensions": 1536
+        },
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "text": true,
+          "tool_calls": false
+        },
+        "tools": {
+          "enabled": false,
+          "parallel": false,
+          "streaming": false,
+          "strict": false
+        }
+      },
       "cost": {
         "input": 0.1,
         "output": 0
@@ -2645,7 +2697,8 @@
       "deprecated": false,
       "extra": {
         "attachment": false,
-        "open_weights": false
+        "open_weights": false,
+        "type": "embedding"
       },
       "family": null,
       "id": "text-embedding-ada-002",
@@ -2661,7 +2714,8 @@
           "text"
         ],
         "output": [
-          "text"
+          "text",
+          "embedding"
         ]
       },
       "model": null,
@@ -3478,7 +3532,32 @@
     },
     "text-embedding-3-small": {
       "aliases": [],
-      "capabilities": null,
+      "capabilities": {
+        "chat": true,
+        "embeddings": {
+          "default_dimensions": 1536,
+          "max_dimensions": 1536,
+          "min_dimensions": 1
+        },
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "text": true,
+          "tool_calls": false
+        },
+        "tools": {
+          "enabled": false,
+          "parallel": false,
+          "streaming": false,
+          "strict": false
+        }
+      },
       "cost": {
         "input": 0.02,
         "output": 0
@@ -3486,7 +3565,8 @@
       "deprecated": false,
       "extra": {
         "attachment": false,
-        "open_weights": false
+        "open_weights": false,
+        "type": "embedding"
       },
       "family": null,
       "id": "text-embedding-3-small",
@@ -3502,7 +3582,8 @@
           "text"
         ],
         "output": [
-          "text"
+          "text",
+          "embedding"
         ]
       },
       "model": null,
