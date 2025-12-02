@@ -85,7 +85,7 @@ defmodule LLMDB.MixProject do
         "Agent Jido" => "https://agentjido.xyz"
       },
       files:
-        ~w(config lib priv mix.exs LICENSE README.md CHANGELOG.md AGENTS.md usage-rules.md .formatter.exs)
+        ~w(config lib priv/providers mix.exs LICENSE README.md CHANGELOG.md AGENTS.md usage-rules.md .formatter.exs)
     ]
   end
 
