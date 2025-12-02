@@ -133,14 +133,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Use stable branch - check if it exists on remote
-          if git ls-remote --exit-code --heads origin "$BRANCH_NAME" >/dev/null 2>&1; then
-            git fetch origin "$BRANCH_NAME"
-            git checkout "$BRANCH_NAME"
-            git reset --hard origin/main
-          else
-            git checkout -b "$BRANCH_NAME"
-          fi
+          # Use stable branch - create from main or reset existing
+          git fetch origin "$BRANCH_NAME" 2>/dev/null || true
+          git branch -D "$BRANCH_NAME" 2>/dev/null || true
+          git checkout -b "$BRANCH_NAME"
 
           # Stage changes
           git add priv/llm_db/
