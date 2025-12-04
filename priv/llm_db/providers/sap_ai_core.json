@@ -2,15 +2,15 @@
   "alias_of": null,
   "base_url": null,
   "config_schema": null,
-  "doc": "https://platform.minimax.io/docs/guides/quickstart",
+  "doc": "https://help.sap.com/docs/sap-ai-core",
   "env": [
-    "MINIMAX_API_KEY"
+    "SAP_AI_SERVICE_KEY"
   ],
   "exclude_models": null,
   "extra": null,
-  "id": "minimax",
+  "id": "sap_ai_core",
   "models": {
-    "MiniMax-M2": {
+    "claude-3-5-sonnet": {
       "aliases": [],
       "capabilities": {
         "chat": true,
@@ -21,7 +21,7 @@
           "strict": false
         },
         "reasoning": {
-          "enabled": true
+          "enabled": false
         },
         "streaming": {
           "tool_calls": true
@@ -31,61 +31,25 @@
         }
       },
       "cost": {
-        "input": 0.3,
-        "output": 1.2
+        "cache_read": 0.3,
+        "cache_write": 3.75,
+        "input": 3,
+        "output": 15
       },
       "deprecated": false,
       "extra": {
-        "attachment": false,
-        "open_weights": true,
+        "attachment": true,
+        "open_weights": false,
         "temperature": true
       },
       "family": null,
-      "id": "MiniMax-M2",
+      "id": "claude-3-5-sonnet",
       "knowledge": null,
-      "last_updated": "2025-10-27",
+      "last_updated": "2024-06-20",
       "lifecycle": null,
       "limits": {
-        "context": 196608,
-        "output": 128000
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "MiniMax-M2",
-      "provider": "minimax",
-      "provider_model_id": null,
-      "release_date": "2025-10-27",
-      "tags": null
-    },
-    "minimax-01": {
-      "aliases": [],
-      "capabilities": null,
-      "cost": {
-        "image": 0.0,
-        "input": 1.9999999999999998e-4,
-        "output": 0.0011,
-        "reasoning": 0.0,
-        "request": 0.0
-      },
-      "deprecated": false,
-      "extra": {
-        "hugging_face_id": "MiniMaxAI/MiniMax-Text-01"
-      },
-      "family": null,
-      "id": "minimax-01",
-      "knowledge": null,
-      "last_updated": null,
-      "lifecycle": null,
-      "limits": {
-        "context": 1000192,
-        "output": 1000192
+        "context": 200000,
+        "output": 8192
       },
       "modalities": {
         "input": [
@@ -97,13 +61,13 @@
         ]
       },
       "model": null,
-      "name": "MiniMax: MiniMax-01",
-      "provider": "minimax",
+      "name": "Claude Sonnet 3.5",
+      "provider": "sap_ai_core",
       "provider_model_id": null,
-      "release_date": "2025-01-15",
+      "release_date": "2024-06-20",
       "tags": null
     },
-    "minimax-m1": {
+    "gemini-1.5-pro": {
       "aliases": [],
       "capabilities": {
         "chat": true,
@@ -117,49 +81,50 @@
           "enabled": false
         },
         "streaming": {
-          "text": true,
-          "tool_calls": false
+          "tool_calls": true
         },
         "tools": {
           "enabled": true
         }
       },
       "cost": {
-        "image": 0.0,
-        "input": 3.9999999999999996e-4,
-        "output": 0.0022,
-        "reasoning": 0.0,
-        "request": 0.0
+        "input": 1.25,
+        "output": 5
       },
       "deprecated": false,
       "extra": {
-        "hugging_face_id": ""
+        "attachment": true,
+        "open_weights": false,
+        "temperature": true
       },
       "family": null,
-      "id": "minimax-m1",
+      "id": "gemini-1.5-pro",
       "knowledge": null,
-      "last_updated": null,
+      "last_updated": "2024-02-15",
       "lifecycle": null,
       "limits": {
-        "context": 1000000,
-        "output": 40000
+        "context": 2000000,
+        "output": 8192
       },
       "modalities": {
         "input": [
-          "text"
+          "text",
+          "image",
+          "audio",
+          "video"
         ],
         "output": [
           "text"
         ]
       },
       "model": null,
-      "name": "MiniMax: MiniMax M1",
-      "provider": "minimax",
+      "name": "Gemini 1.5 Pro",
+      "provider": "sap_ai_core",
       "provider_model_id": null,
-      "release_date": "2025-06-17",
+      "release_date": "2024-02-15",
       "tags": null
     },
-    "minimax-m2": {
+    "gpt-4o": {
       "aliases": [],
       "capabilities": {
         "chat": true,
@@ -173,48 +138,47 @@
           "enabled": false
         },
         "streaming": {
-          "text": true,
-          "tool_calls": false
+          "tool_calls": true
         },
         "tools": {
           "enabled": true
         }
       },
       "cost": {
-        "image": 0.0,
-        "input": 2.55e-4,
-        "output": 0.00102,
-        "reasoning": 0.0,
-        "request": 0.0
+        "input": 2.5,
+        "output": 10
       },
       "deprecated": false,
       "extra": {
-        "hugging_face_id": "MiniMaxAI/MiniMax-M2"
+        "attachment": true,
+        "open_weights": false,
+        "temperature": true
       },
       "family": null,
-      "id": "minimax-m2",
+      "id": "gpt-4o",
       "knowledge": null,
-      "last_updated": null,
+      "last_updated": "2024-05-13",
       "lifecycle": null,
       "limits": {
-        "context": 204800,
-        "output": 131072
+        "context": 128000,
+        "output": 4096
       },
       "modalities": {
         "input": [
-          "text"
+          "text",
+          "image"
         ],
         "output": [
           "text"
         ]
       },
       "model": null,
-      "name": "MiniMax: MiniMax M2",
-      "provider": "minimax",
+      "name": "GPT-4o",
+      "provider": "sap_ai_core",
       "provider_model_id": null,
-      "release_date": "2025-10-23",
+      "release_date": "2024-05-13",
       "tags": null
     }
   },
-  "name": "Minimax"
+  "name": "SAP AI Core"
 }

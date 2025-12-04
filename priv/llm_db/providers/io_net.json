@@ -2,520 +2,15 @@
   "alias_of": null,
   "base_url": null,
   "config_schema": null,
-  "doc": "https://docs.zenmux.ai",
+  "doc": "https://io.net/docs/guides/intelligence/io-intelligence",
   "env": [
-    "ZENMUX_API_KEY"
+    "IOINTELLIGENCE_API_KEY"
   ],
   "exclude_models": null,
   "extra": null,
-  "id": "zenmux",
+  "id": "io_net",
   "models": {
-    "anthropic/claude-haiku-4.5": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.1,
-        "cache_write": 1.25,
-        "input": 1,
-        "output": 5
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": true,
-        "open_weights": false,
-        "temperature": true
-      },
-      "family": null,
-      "id": "anthropic/claude-haiku-4.5",
-      "knowledge": "2025-02-28",
-      "last_updated": "2025-10-15",
-      "lifecycle": null,
-      "limits": {
-        "context": 200000,
-        "output": 64000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "Claude Haiku 4.5",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-10-15",
-      "tags": null
-    },
-    "anthropic/claude-opus-4.1": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 1.5,
-        "cache_write": 18.75,
-        "input": 15,
-        "output": 75
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": true,
-        "open_weights": false,
-        "temperature": true
-      },
-      "family": null,
-      "id": "anthropic/claude-opus-4.1",
-      "knowledge": "2025-03-31",
-      "last_updated": "2025-08-05",
-      "lifecycle": null,
-      "limits": {
-        "context": 200000,
-        "output": 32000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "Claude Opus 4.1",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-08-05",
-      "tags": null
-    },
-    "anthropic/claude-sonnet-4.5": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.3,
-        "cache_write": 3.75,
-        "input": 3,
-        "output": 15
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": true,
-        "open_weights": false,
-        "temperature": true
-      },
-      "family": null,
-      "id": "anthropic/claude-sonnet-4.5",
-      "knowledge": "2025-07-31",
-      "last_updated": "2025-09-29",
-      "lifecycle": null,
-      "limits": {
-        "context": 1000000,
-        "output": 64000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "Claude Sonnet 4.5",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-09-29",
-      "tags": null
-    },
-    "deepseek/deepseek-chat": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.07,
-        "input": 0.56,
-        "output": 1.68
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": false,
-        "open_weights": true,
-        "temperature": true
-      },
-      "family": null,
-      "id": "deepseek/deepseek-chat",
-      "knowledge": "2025-07",
-      "last_updated": "2025-09-29",
-      "lifecycle": null,
-      "limits": {
-        "context": 128000,
-        "output": 8000
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "DeepSeek-V3.2-Exp (Non-thinking Mode)",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-09-29",
-      "tags": null
-    },
-    "google/gemini-2.5-pro": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.31,
-        "cache_write": 4.5,
-        "input": 1.25,
-        "output": 10
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": true,
-        "open_weights": false,
-        "temperature": true
-      },
-      "family": null,
-      "id": "google/gemini-2.5-pro",
-      "knowledge": "2025-01",
-      "last_updated": "2025-06-05",
-      "lifecycle": null,
-      "limits": {
-        "context": 1048576,
-        "output": 65536
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "pdf"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "Gemini 2.5 Pro",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-03-20",
-      "tags": null
-    },
-    "inclusionai/lint-1t": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.112,
-        "input": 0.56,
-        "output": 2.24
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": false,
-        "open_weights": true,
-        "temperature": true
-      },
-      "family": null,
-      "id": "inclusionai/lint-1t",
-      "knowledge": "2025-10",
-      "last_updated": "2025-10-09",
-      "lifecycle": null,
-      "limits": {
-        "context": 128000,
-        "output": 32000
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "Ling-1T",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-10-09",
-      "tags": null
-    },
-    "inclusionai/ring-1t": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.112,
-        "input": 0.56,
-        "output": 2.24
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": false,
-        "open_weights": true,
-        "temperature": true
-      },
-      "family": null,
-      "id": "inclusionai/ring-1t",
-      "knowledge": "2025-10",
-      "last_updated": "2025-10-12",
-      "lifecycle": null,
-      "limits": {
-        "context": 128000,
-        "output": 32000
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "Ring-1T",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-10-12",
-      "tags": null
-    },
-    "kuaishou/kat-coder-pro-v1": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.12,
-        "input": 0.6,
-        "output": 2.4
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": false,
-        "open_weights": false,
-        "temperature": true
-      },
-      "family": null,
-      "id": "kuaishou/kat-coder-pro-v1",
-      "knowledge": "2025-01-01",
-      "last_updated": "2025-10-23",
-      "lifecycle": null,
-      "limits": {
-        "context": 256000,
-        "output": 32000
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "KAT-Coder-Pro-V1",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-10-23",
-      "tags": null
-    },
-    "minimax/minimax-m2": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "input": 0.3,
-        "output": 1.2
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": false,
-        "open_weights": false,
-        "temperature": true
-      },
-      "family": null,
-      "id": "minimax/minimax-m2",
-      "knowledge": "2025-10",
-      "last_updated": "2025-10-27",
-      "lifecycle": null,
-      "limits": {
-        "context": 204800,
-        "output": 128000
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "MiniMax M2",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-10-27",
-      "tags": null
-    },
-    "moonshotai/kimi-k2-0905": {
+    "Intel/Qwen3-Coder-480B-A35B-Instruct-int4-mixed-ar": {
       "aliases": [],
       "capabilities": {
         "chat": true,
@@ -536,24 +31,25 @@
         }
       },
       "cost": {
-        "cache_read": 0.15,
-        "input": 0.6,
-        "output": 2.5
+        "cache_read": 0.11,
+        "cache_write": 0.44,
+        "input": 0.22,
+        "output": 0.95
       },
       "deprecated": false,
       "extra": {
         "attachment": false,
-        "open_weights": false,
+        "open_weights": true,
         "temperature": true
       },
       "family": null,
-      "id": "moonshotai/kimi-k2-0905",
-      "knowledge": "2024-10",
-      "last_updated": "2025-09-04",
+      "id": "Intel/Qwen3-Coder-480B-A35B-Instruct-int4-mixed-ar",
+      "knowledge": "2024-12",
+      "last_updated": "2025-01-15",
       "lifecycle": null,
       "limits": {
-        "context": 262144,
-        "output": 16384
+        "context": 106000,
+        "output": 4096
       },
       "modalities": {
         "input": [
@@ -564,13 +60,70 @@
         ]
       },
       "model": null,
-      "name": "Kimi K2 0905",
-      "provider": "zenmux",
+      "name": "Qwen 3 Coder 480B",
+      "provider": "io_net",
       "provider_model_id": null,
-      "release_date": "2025-09-04",
+      "release_date": "2025-01-15",
       "tags": null
     },
-    "moonshotai/kimi-k2-thinking": {
+    "Qwen/Qwen2.5-VL-32B-Instruct": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.025,
+        "cache_write": 0.1,
+        "input": 0.05,
+        "output": 0.22
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "Qwen/Qwen2.5-VL-32B-Instruct",
+      "knowledge": "2024-09",
+      "last_updated": "2024-11-01",
+      "lifecycle": null,
+      "limits": {
+        "context": 32000,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Qwen 2.5 VL 32B Instruct",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2024-11-01",
+      "tags": null
+    },
+    "Qwen/Qwen3-235B-A22B-Thinking-2507": {
       "aliases": [],
       "capabilities": {
         "chat": true,
@@ -591,8 +144,348 @@
         }
       },
       "cost": {
-        "input": 0.6,
-        "output": 2.5
+        "cache_read": 0.055,
+        "cache_write": 0.22,
+        "input": 0.11,
+        "output": 0.6
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "Qwen/Qwen3-235B-A22B-Thinking-2507",
+      "knowledge": "2024-12",
+      "last_updated": "2025-07-01",
+      "lifecycle": null,
+      "limits": {
+        "context": 262144,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Qwen 3 235B Thinking",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2025-07-01",
+      "tags": null
+    },
+    "Qwen/Qwen3-Next-80B-A3B-Instruct": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.05,
+        "cache_write": 0.2,
+        "input": 0.1,
+        "output": 0.8
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
+      "knowledge": "2024-12",
+      "last_updated": "2025-01-10",
+      "lifecycle": null,
+      "limits": {
+        "context": 262144,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Qwen 3 Next 80B Instruct",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2025-01-10",
+      "tags": null
+    },
+    "deepseek-ai/DeepSeek-R1-0528": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 1,
+        "cache_write": 4,
+        "input": 2,
+        "output": 8.75
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "deepseek-ai/DeepSeek-R1-0528",
+      "knowledge": "2024-07",
+      "last_updated": "2025-05-28",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "DeepSeek R1",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2025-01-20",
+      "tags": null
+    },
+    "meta-llama/Llama-3.2-90B-Vision-Instruct": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.175,
+        "cache_write": 0.7,
+        "input": 0.35,
+        "output": 0.4
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "meta-llama/Llama-3.2-90B-Vision-Instruct",
+      "knowledge": "2023-12",
+      "last_updated": "2024-09-25",
+      "lifecycle": null,
+      "limits": {
+        "context": 16000,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Llama 3.2 90B Vision Instruct",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2024-09-25",
+      "tags": null
+    },
+    "meta-llama/Llama-3.3-70B-Instruct": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.065,
+        "cache_write": 0.26,
+        "input": 0.13,
+        "output": 0.38
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "meta-llama/Llama-3.3-70B-Instruct",
+      "knowledge": "2023-12",
+      "last_updated": "2024-12-06",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Llama 3.3 70B Instruct",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2024-12-06",
+      "tags": null
+    },
+    "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.075,
+        "cache_write": 0.3,
+        "input": 0.15,
+        "output": 0.6
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+      "knowledge": "2024-12",
+      "last_updated": "2025-01-15",
+      "lifecycle": null,
+      "limits": {
+        "context": 430000,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Llama 4 Maverick 17B 128E Instruct",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2025-01-15",
+      "tags": null
+    },
+    "mistralai/Devstral-Small-2505": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.025,
+        "cache_write": 0.1,
+        "input": 0.05,
+        "output": 0.22
       },
       "deprecated": false,
       "extra": {
@@ -601,13 +494,294 @@
         "temperature": true
       },
       "family": null,
-      "id": "moonshotai/kimi-k2-thinking",
-      "knowledge": "2025-11",
-      "last_updated": "2025-11-06",
+      "id": "mistralai/Devstral-Small-2505",
+      "knowledge": "2024-12",
+      "last_updated": "2025-05-01",
       "lifecycle": null,
       "limits": {
-        "context": 262144,
-        "output": 262144
+        "context": 128000,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Devstral Small 2505",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2025-05-01",
+      "tags": null
+    },
+    "mistralai/Magistral-Small-2506": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.25,
+        "cache_write": 1,
+        "input": 0.5,
+        "output": 1.5
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "mistralai/Magistral-Small-2506",
+      "knowledge": "2025-01",
+      "last_updated": "2025-06-01",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Magistral Small 2506",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2025-06-01",
+      "tags": null
+    },
+    "mistralai/Mistral-Large-Instruct-2411": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 1,
+        "cache_write": 4,
+        "input": 2,
+        "output": 6
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "mistralai/Mistral-Large-Instruct-2411",
+      "knowledge": "2024-10",
+      "last_updated": "2024-11-01",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Mistral Large Instruct 2411",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2024-11-01",
+      "tags": null
+    },
+    "mistralai/Mistral-Nemo-Instruct-2407": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.01,
+        "cache_write": 0.04,
+        "input": 0.02,
+        "output": 0.04
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "mistralai/Mistral-Nemo-Instruct-2407",
+      "knowledge": "2024-05",
+      "last_updated": "2024-07-01",
+      "lifecycle": null,
+      "limits": {
+        "context": 128000,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Mistral Nemo Instruct 2407",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2024-07-01",
+      "tags": null
+    },
+    "moonshotai/Kimi-K2-Instruct-0905": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.195,
+        "cache_write": 0.78,
+        "input": 0.39,
+        "output": 1.9
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "moonshotai/Kimi-K2-Instruct-0905",
+      "knowledge": "2024-08",
+      "last_updated": "2024-09-05",
+      "lifecycle": null,
+      "limits": {
+        "context": 32768,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "Kimi K2 Instruct",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2024-09-05",
+      "tags": null
+    },
+    "moonshotai/Kimi-K2-Thinking": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": true
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.275,
+        "cache_write": 1.1,
+        "input": 0.55,
+        "output": 2.25
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": false,
+        "temperature": true
+      },
+      "family": null,
+      "id": "moonshotai/Kimi-K2-Thinking",
+      "knowledge": "2024-08",
+      "last_updated": "2024-11-01",
+      "lifecycle": null,
+      "limits": {
+        "context": 32768,
+        "output": 4096
       },
       "modalities": {
         "input": [
@@ -619,178 +793,12 @@
       },
       "model": null,
       "name": "Kimi K2 Thinking",
-      "provider": "zenmux",
+      "provider": "io_net",
       "provider_model_id": null,
-      "release_date": "2025-11-06",
+      "release_date": "2024-11-01",
       "tags": null
     },
-    "moonshotai/kimi-k2-thinking-turbo": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "input": 1.15,
-        "output": 8
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": false,
-        "open_weights": false,
-        "temperature": true
-      },
-      "family": null,
-      "id": "moonshotai/kimi-k2-thinking-turbo",
-      "knowledge": "2025-11",
-      "last_updated": "2025-11-06",
-      "lifecycle": null,
-      "limits": {
-        "context": 262144,
-        "output": 262144
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "Kimi K2 Thinking Turbo",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-11-06",
-      "tags": null
-    },
-    "openai/gpt-5": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.125,
-        "input": 1.25,
-        "output": 10
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": true,
-        "open_weights": false,
-        "temperature": true
-      },
-      "family": null,
-      "id": "openai/gpt-5",
-      "knowledge": "2024-10-01",
-      "last_updated": "2025-08-07",
-      "lifecycle": null,
-      "limits": {
-        "context": 400000,
-        "output": 128000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "GPT-5",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-08-07",
-      "tags": null
-    },
-    "openai/gpt-5-codex": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.125,
-        "input": 1.25,
-        "output": 10
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": true,
-        "open_weights": false,
-        "temperature": true
-      },
-      "family": null,
-      "id": "openai/gpt-5-codex",
-      "knowledge": "2024-10-01",
-      "last_updated": "2025-09-23",
-      "lifecycle": null,
-      "limits": {
-        "context": 400000,
-        "output": 128000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "GPT-5 Codex",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-09-23",
-      "tags": null
-    },
-    "qwen/qwen3-coder-plus": {
+    "openai/gpt-oss-120b": {
       "aliases": [],
       "capabilities": {
         "chat": true,
@@ -802,230 +810,6 @@
         },
         "reasoning": {
           "enabled": false
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.1,
-        "cache_write": 1.25,
-        "input": 1,
-        "output": 5
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": false,
-        "open_weights": true,
-        "temperature": true
-      },
-      "family": null,
-      "id": "qwen/qwen3-coder-plus",
-      "knowledge": "2025-04",
-      "last_updated": "2025-07-23",
-      "lifecycle": null,
-      "limits": {
-        "context": 1000000,
-        "output": 66540
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "Qwen3 Coder Plus",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-07-23",
-      "tags": null
-    },
-    "x-ai/grok-4": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.75,
-        "input": 3,
-        "output": 15
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": true,
-        "open_weights": false,
-        "temperature": true
-      },
-      "family": null,
-      "id": "x-ai/grok-4",
-      "knowledge": "2025-01-01",
-      "last_updated": "2025-07-09",
-      "lifecycle": null,
-      "limits": {
-        "context": 256000,
-        "output": 256000
-      },
-      "modalities": {
-        "input": [
-          "image",
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "Grok 4",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-07-09",
-      "tags": null
-    },
-    "x-ai/grok-4-fast": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.05,
-        "input": 0.2,
-        "output": 0.5
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": true,
-        "open_weights": false,
-        "temperature": true
-      },
-      "family": null,
-      "id": "x-ai/grok-4-fast",
-      "knowledge": "2025-01-01",
-      "last_updated": "2025-09-19",
-      "lifecycle": null,
-      "limits": {
-        "context": 2000000,
-        "output": 30000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "Grok 4 Fast",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-09-19",
-      "tags": null
-    },
-    "x-ai/grok-4-fast-non-reasoning": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": false
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.05,
-        "input": 0.2,
-        "output": 0.5
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": true,
-        "open_weights": false,
-        "temperature": true
-      },
-      "family": null,
-      "id": "x-ai/grok-4-fast-non-reasoning",
-      "knowledge": "2025-01-01",
-      "last_updated": "2025-09-19",
-      "lifecycle": null,
-      "limits": {
-        "context": 2000000,
-        "output": 30000
-      },
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "Grok 4 Fast None Reasoning",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-09-19",
-      "tags": null
-    },
-    "x-ai/grok-code-fast-1": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
         },
         "streaming": {
           "tool_calls": true
@@ -1036,8 +820,121 @@
       },
       "cost": {
         "cache_read": 0.02,
-        "input": 0.2,
-        "output": 1.5
+        "cache_write": 0.08,
+        "input": 0.04,
+        "output": 0.4
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "openai/gpt-oss-120b",
+      "knowledge": "2024-10",
+      "last_updated": "2024-12-01",
+      "lifecycle": null,
+      "limits": {
+        "context": 131072,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "GPT-OSS 120B",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2024-12-01",
+      "tags": null
+    },
+    "openai/gpt-oss-20b": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.015,
+        "cache_write": 0.06,
+        "input": 0.03,
+        "output": 0.14
+      },
+      "deprecated": false,
+      "extra": {
+        "attachment": false,
+        "open_weights": true,
+        "temperature": true
+      },
+      "family": null,
+      "id": "openai/gpt-oss-20b",
+      "knowledge": "2024-10",
+      "last_updated": "2024-12-01",
+      "lifecycle": null,
+      "limits": {
+        "context": 64000,
+        "output": 4096
+      },
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "text"
+        ]
+      },
+      "model": null,
+      "name": "GPT-OSS 20B",
+      "provider": "io_net",
+      "provider_model_id": null,
+      "release_date": "2024-12-01",
+      "tags": null
+    },
+    "zai-org/GLM-4.6": {
+      "aliases": [],
+      "capabilities": {
+        "chat": true,
+        "embeddings": false,
+        "json": {
+          "native": false,
+          "schema": false,
+          "strict": false
+        },
+        "reasoning": {
+          "enabled": false
+        },
+        "streaming": {
+          "tool_calls": true
+        },
+        "tools": {
+          "enabled": true
+        }
+      },
+      "cost": {
+        "cache_read": 0.2,
+        "cache_write": 0.8,
+        "input": 0.4,
+        "output": 1.75
       },
       "deprecated": false,
       "extra": {
@@ -1046,123 +943,13 @@
         "temperature": true
       },
       "family": null,
-      "id": "x-ai/grok-code-fast-1",
-      "knowledge": "2025-01-01",
-      "last_updated": "2025-08-26",
-      "lifecycle": null,
-      "limits": {
-        "context": 256000,
-        "output": 10000
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "Grok Code Fast 1",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-08-26",
-      "tags": null
-    },
-    "z-ai/glm-4.5-air": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.022,
-        "input": 0.11,
-        "output": 0.56
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": false,
-        "open_weights": true,
-        "temperature": true
-      },
-      "family": null,
-      "id": "z-ai/glm-4.5-air",
-      "knowledge": "2025-04",
-      "last_updated": "2025-07-25",
-      "lifecycle": null,
-      "limits": {
-        "context": 128000,
-        "output": 96000
-      },
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "text"
-        ]
-      },
-      "model": null,
-      "name": "GLM 4.5 Air",
-      "provider": "zenmux",
-      "provider_model_id": null,
-      "release_date": "2025-07-25",
-      "tags": null
-    },
-    "z-ai/glm-4.6": {
-      "aliases": [],
-      "capabilities": {
-        "chat": true,
-        "embeddings": false,
-        "json": {
-          "native": false,
-          "schema": false,
-          "strict": false
-        },
-        "reasoning": {
-          "enabled": true
-        },
-        "streaming": {
-          "tool_calls": true
-        },
-        "tools": {
-          "enabled": true
-        }
-      },
-      "cost": {
-        "cache_read": 0.07,
-        "input": 0.35,
-        "output": 1.54
-      },
-      "deprecated": false,
-      "extra": {
-        "attachment": false,
-        "open_weights": true,
-        "temperature": true
-      },
-      "family": null,
-      "id": "z-ai/glm-4.6",
-      "knowledge": "2025-09",
-      "last_updated": "2025-09-30",
+      "id": "zai-org/GLM-4.6",
+      "knowledge": "2024-10",
+      "last_updated": "2024-11-15",
       "lifecycle": null,
       "limits": {
         "context": 200000,
-        "output": 128000
+        "output": 4096
       },
       "modalities": {
         "input": [
@@ -1174,11 +961,11 @@
       },
       "model": null,
       "name": "GLM 4.6",
-      "provider": "zenmux",
+      "provider": "io_net",
       "provider_model_id": null,
-      "release_date": "2025-09-30",
+      "release_date": "2024-11-15",
       "tags": null
     }
   },
-  "name": "ZenMux"
+  "name": "IO.NET"
 }
